@@ -23,8 +23,4 @@ clean:
 		make -C $$i clean; \
 	done
 
-© 2021 GitHub, Inc.
-Terms
-
-
 # end

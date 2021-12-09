@@ -18,16 +18,16 @@ auto partOne(const vector<OpCode> &opCode) {
   auto nDepth = 0;
   auto nPos = 0;
 
-  for (const auto &[op, val] : opCode) {
+  for (const auto &[op, nVal] : opCode) {
     switch (op) {
     case Op::Forward:
-      nPos += val;
+      nPos += nVal;
       break;
     case Op::Down:
-      nDepth += val;
+      nDepth += nVal;
       break;
     case Op::Up:
-      nDepth -= val;
+      nDepth -= nVal;
       break;
     }
   }
