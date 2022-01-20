@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <bitset>
 #include <iostream>
 #include <string>
@@ -7,7 +8,7 @@ using namespace std;
 
 static const int nSize = 12;
 
-auto partOne(const vector<string> vInput) {
+auto partOne(const vector<string> &vInput) {
 
   int nCount = 0;
   int nBits[nSize] = {0, 0, 0, 0, 0};
@@ -35,6 +36,26 @@ auto partOne(const vector<string> vInput) {
   return nGamma * nEpsilon;
 }
 
+auto partTwo(const vector<string> &vInput) {
+
+  for (int i = 0; i < 5; i++) {
+
+    int nCount = 0;
+    int nBits = 0;
+
+    for (string sIn : vInput) {
+      if (sIn.at(i) == '1')
+        nBits++;
+      nCount++;
+    }
+
+    for (string sIn : vInput) {
+      if (sIn.at(i) != (nBits > (nCount / 2)))
+        vInput.erase(remove_if(_FIter, _FIter, _Predicate))
+    }
+  }
+}
+
 int main(int argc, char *argv[]) {
 
   vector<string> vInput;
@@ -45,6 +66,7 @@ int main(int argc, char *argv[]) {
     vInput.push_back(sIn);
   }
   cout << partOne(vInput) << endl;
+  cout << partTwo(vInput) << endl;
 
   return 0;
 }
